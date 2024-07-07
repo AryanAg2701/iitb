@@ -1,0 +1,20 @@
+.footer{
+    background-color: black;
+    color:white;
+    height: 300px;
+}
+.pic{
+    padding-top: 50px;
+}
+#image{
+        height: 73.33px;
+        width: 200px;
+}
+.rights{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+span{
+    padding-left: 20px;
+}

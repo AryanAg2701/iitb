@@ -112,7 +112,7 @@ x
             <div value="circle" class="circle" onClick={changetheme} style={{translate:num,backgroundColor:colour,color:col,transition:'1000ms,ease out'}}/>
         </div>
         
-        <div id="pages">
+        <div id="pages"  style={{backgroundColor:colour,color:col,transition:'1000ms,ease out'}}>
             <div className="page" style={{backgroundColor:col,color:colour,transition:'1000ms,ease out'}}>1</div>
             <div className="page" style={{backgroundColor:col,color:colour,transition:'1000ms,ease out'}}>2</div>
             <div className="page" style={{backgroundColor:col,color:colour,transition:'1000ms,ease out'}}>3</div>

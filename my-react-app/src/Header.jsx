@@ -7,11 +7,6 @@ import React, { useRef, useEffect } from 'react';
 
 
 function Header(){
-
-        // setTimeout(()=>{menu?setcol("black"):setcol("white")},200)
-        // setTimeout(()=>{menu?setcolour("white"):setcolour("black")},200)
-        setTimeout(()=>{menu?setvisi("visible"):setvisi("hidden")},500)
-
     const [col,setcol]=useState("black")
     const [colour,setcolour]=useState("white")
     const [visi,setvisi]=useState('hidden')
@@ -23,20 +18,20 @@ function Header(){
   const divRef = useRef(null);
   const hamburgerRef = useRef(null);
 
+  setTimeout(()=>{menu?setvisi("visible"):setvisi("hidden")},0)
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const outsideclick = (event) => {
       if (divRef.current && !divRef.current.contains(event.target) && event.target !== hamburgerRef.current) {
         // Clicked outside of the div
         setmenu(false)
-        // Add your custom logic here
       }
     };
 
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('click', outsideclick);
 
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('click', outsideclick);
     };
   }, [menu]);
 
@@ -44,7 +39,7 @@ function Header(){
 
     return(
     <>
-    <div id="menu" ref={divRef} style={{visibility:visi,transition:'1000ms,ease out'}}>riatur quidem praesentium, esse totam necessitatibus commodi eum fuga ut blanditiis nostrum sapiente numquam! At quis consequuntur fugit velit ullam!</div>
+    <div id="menu" ref={divRef} style={{visibility:visi,transition:'100ms,ease in'}}>riatur quidem praesentium, esse totam necessitatibus commodi eum fuga ut blanditiis nostrum sapiente numquam! At quis consequuntur fugit velit ullam!</div>
     <div className="pic"> <a href="https://www.youtube.com/"><img id="image" src={image} alt="hi" /></a></div>
     <div className="headbox" style={{backgroundColor:colour,color:col,transition:'1000ms,ease out'}}>
     <div id="setting">

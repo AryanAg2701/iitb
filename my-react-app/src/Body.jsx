@@ -1,8 +1,12 @@
 import { useState } from "react";
 import "./Body.css"
 function Body(){  
+    const [col,setcol]=useState("black") //usestate hook change of background
+    const [colour,setcolour]=useState("white") //usestate hook change of text color
+    const [num,setnum]=useState('0px') //usestate hook for transition change of theme
+    const[theme,settheme]=useState(true) //usestate hook for theme change boolean
 
-    const[theme,settheme]=useState(true)
+    //changetheme function for appllying the above changes with Timeout for better transition
     function changetheme(){
         setTimeout(()=>settheme(!theme),200)
         setTimeout(()=>{theme?setcol("white"):setcol("black")},200)
@@ -10,9 +14,7 @@ function Body(){
         setTimeout(()=>{theme?setnum("50px"):setnum("0px")},200)
 
     }
-    const [col,setcol]=useState("black")
-    const [colour,setcolour]=useState("white")
-    const [num,setnum]=useState('0px')
+    //returning the nody which contains the text and boxes for switching between pages along woth the theme change button
     return(
         <>
         <div className="body" style={{backgroundColor:colour,color:col,transition:'1000ms,ease out'}}>

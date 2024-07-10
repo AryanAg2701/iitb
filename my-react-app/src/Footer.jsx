@@ -1,6 +1,8 @@
-import "./Footer.css"
-import image from "./assets/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg"
+import "./Footer.css" //stylesheet
+import image from "./assets/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" //image of logo
+
 function Footer(){
+    //returning the Footer with few hyperlinks and the navigating between sites.
     return(
         <>
             <div className="footer">

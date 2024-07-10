@@ -1,29 +1,30 @@
-import "./Header.css"
-import hamburger from "./assets/Untitled.png"
-import image from "./assets/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg"
-import searchpic from "./assets/images.png"
-import { useState } from "react"
-import React, { useRef, useEffect } from 'react';
+import "./Header.css" //stylesheet
+import hamburger from "./assets/Untitled.png" //image
+import image from "./assets/hacker-mascot-for-sports-and-esports-logo-free-vector.jpg" //image
+import searchpic from "./assets/images.png" //image
+import React, { useState, useRef, useEffect } from 'react'; //importing useState,useEffect and useRef hooks from react
 
 
 function Header(){
-    const [col,setcol]=useState("black")
-    const [colour,setcolour]=useState("white")
-    const [visi,setvisi]=useState('hidden')
-    const [show,setshow]=useState(false);   
-    const Change=()=>setshow(!show)
-    const [menu,setmenu]=useState(false);
-    const handlemenu=()=>setmenu(!menu);
+  const [col,setcol]=useState("black")  //usestate hook change of background
+  const [colour,setcolour]=useState("white")  //usestate hook change of text color
+  const [visi,setvisi]=useState('hidden')  //usestate hook change of visibility of side box
+  const [show,setshow]=useState(false);  //usestate hook for search box
+  const [menu,setmenu]=useState(false); //usestate hook for handleing side menu
+  const change=()=>setshow(!show)
 
-  const divRef = useRef(null);
-  const hamburgerRef = useRef(null);
+  const handlemenu=()=>setmenu(!menu); //changing sidebox visibility on click
 
-  setTimeout(()=>{menu?setvisi("visible"):setvisi("hidden")},0)
+  const divRef = useRef(null);//useRef hook for declaring div
+  const hamburgerRef = useRef(null);//useRef for declaring the pic of hamburger
 
+  setTimeout(()=>{menu?setvisi("visible"):setvisi("hidden")},0)//seting the visibility by boolean on click
+
+  //useEffect hook for checking outside click
   useEffect(() => {
     const outsideclick = (event) => {
       if (divRef.current && !divRef.current.contains(event.target) && event.target !== hamburgerRef.current) {
-        // Clicked outside of the div
+        // if clicked outside of the div
         setmenu(false)
       }
     };
@@ -35,8 +36,7 @@ function Header(){
     };
   }, [menu]);
 
-
-
+  //returning the text along with navbar ,the sidemenu ,search button
     return(
     <>
     <div id="menu" ref={divRef} style={{visibility:visi,transition:'100ms,ease in'}}>riatur quidem praesentium, esse totam necessitatibus commodi eum fuga ut blanditiis nostrum sapiente numquam! At quis consequuntur fugit velit ullam!</div>
@@ -63,7 +63,7 @@ function Header(){
         <span className="head">Summer Blog</span>
     </div>
     <div id="searchhead">
-        <div> <img onClick={Change} id="searchpic" src={searchpic}/></div>
+        <div> <img onClick={change} id="searchpic" src={searchpic}/></div>
     
         {show?<div >
         <input id="searchme" class type="text"  placeholder="Search"/>
